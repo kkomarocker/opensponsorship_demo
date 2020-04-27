@@ -1,3 +1,5 @@
+// Distinguishes to appropriate routes.
+
 const router = require("express").Router();
 
 module.exports = router;
