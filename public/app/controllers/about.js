@@ -3,20 +3,14 @@ angular
 	.module("aboutControllers", [])
 
 	.controller("aboutCtrl", function() {
-		// this.saveAndNext =  () => {
+		this.saveAndNext =  () => {
 
-		// 	const { info } = this;
+			const { info } = this;
       
-		// 	window.localStorage.setItem("firstName", info.firstName);
-		// 	window.localStorage.setItem("lastName", info.lastName);
-		// 	window.localStorage.setItem("dateOfBirth", info.dateOfBirth);
-		// 	window.localStorage.setItem("gender", info.gender);
-		// 	window.localStorage.setItem("location", info.location);
-      
-		// 	console.log(window.localStorage);
+			window.localStorage.setItem("description", info.description);
+			window.localStorage.setItem("association", info.association);
+			window.localStorage.setItem("team", info.team);
 
-		// 	window.location = "/about";
-		// };
-    
-		console.log(window.localStorage);
+			window.location = "/summary";
+		};
 	}); 

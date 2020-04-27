@@ -1,1 +1,58 @@
-<h1>Hello from about</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand">Profile Form - About</a>
+</nav>
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">About</h4>
+		<form>
+			<div class="form-group">
+				<label for="description">Description</label>
+				<textarea
+					class="form-control"
+					id="description"
+					ng-model="about.info.description"
+					rows="5"
+				></textarea>
+				<small id="descriptionHelp" class="form-text text-muted"
+					>Maximum 255 characters</small
+				>
+			</div>
+			<div class="form-group">
+				<label for="association">Association</label>
+				<select
+					id="association"
+					class="custom-select custom-select-sm mb-3"
+					ng-model="about.info.association"
+				>
+					<option>Please choose</option>
+					<option>NBA</option>
+					<option>MLB</option>
+					<option>NFL</option>
+					<option>NHL</option>
+					<option>MLS</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="team">Teams</label>
+				<select
+					id="team"
+					class="custom-select custom-select-sm mb-3"
+					ng-model="about.info.team"
+				>
+					<option>Please choose</option>
+					<option>New York Knicks</option>
+					<option>LA Lakers</option>
+					<option>Golden State Warriors</option>
+					<option>Brooklyn Nets</option>
+				</select>
+			</div>
+			<button
+				ng-click="about.saveAndNext(info);"
+				type="button"
+				class="btn btn-outline-primary my-2 my-sm-0"
+			>
+				Save and Next
+			</button>
+		</form>
+	</div>
+</div>

@@ -22,6 +22,12 @@ angular
 				controllerAs: "about",
 			})
 
+			.when("/summary", {
+				templateUrl: "app/views/pages/summary.html",
+				controller: "summaryCtrl",
+				controllerAs: "summary",
+			})
+
 			.otherwise({ redirectTo: "/" });
 
 		$locationProvider.html5Mode({
