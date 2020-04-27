@@ -10,3 +10,29 @@
 		</button>
 	</span>
 </nav>
+<table class="table">
+	<thead class="thead-light">
+		<tr>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Date Of Birth</th>
+			<th scope="col">Gender</th>
+			<th scope="col">Location</th>
+			<th scope="col">Association</th>
+			<th scope="col">Sports</th>
+			<th scope="col">Team</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="profile in profiles">
+			<td>{{ profile.firstName }}</td>
+			<td>{{ profile.lastName }}</td>
+			<td>{{ profile.dateOfBirth }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.location }}</td>
+			<td>{{ profile.association }}</td>
+			<td>{{ profile.sports }}</td>
+			<td>{{ profile.team }}</td>
+		</tr>
+	</tbody>
+</table>

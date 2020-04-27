@@ -6,7 +6,7 @@ var AthletesSchema = new Schema({
 	lastName: { type: String, required: true },
 	dateOfBirth: { type: Date, default: Date.now() },
 	gender: { type: String, required: true },
-	location: { type: String, lowercase: true, required: true },
+	location: { type: String, required: true },
 	description: { type: String, max: 255, required: true },
 	association: { type: String, required: true },
 	sports: { type: Array },

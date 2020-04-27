@@ -2,7 +2,10 @@ const router = require("express").Router();
 const Athlete = require("../models/athletes");
 
 router.get("/", (req, res) => {
-	res.send("testing profiles route");
+	Athlete.find({}, (err, docs) => {
+		if (err) res.json(err);
+		else res.json(docs);
+	});
 });
 
 router.post("/createProfile", (req, res) => {
