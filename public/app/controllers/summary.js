@@ -6,7 +6,7 @@ angular
 
 		this.firstName = window.localStorage.firstName;
 		this.lastName = window.localStorage.lastName;
-		this.dateOfBirth = window.localStorage.dateOfBirth;
+		this.dateOfBirth = new Date(window.localStorage.dateOfBirth);
 		this.selectedGender = window.localStorage.gender;
 		this.location = window.localStorage.location;
 		this.description = window.localStorage.description;
