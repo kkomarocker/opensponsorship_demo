@@ -1,15 +1,14 @@
-var express = require("express");
-var morgan = require("morgan");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var app = express();
-var port = process.env.PORT || 8081;
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const port = process.env.PORT || 8081;
+const app = express();
 
-var Athlete = require("./app/models/athletes");
-
+app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("dev"));
+app.use("/api", require("./app/routes/index"));
 
 // To remove deprecation warnings..
 mongoose.set("useNewUrlParser", true);
@@ -21,25 +20,6 @@ mongoose.connect("mongodb://localhost:27017/admin", err => {
 	} else {
 		console.log("Successfully connected MongoDB");
 	}
-});
-
-app.post("/createProfile", (req, res) => {
-	var athlete = new Athlete();
-
-	athlete.firstName = req.body.firstName;
-	athlete.lastName = req.body.lastName;
-	athlete.dateOfBirth = req.body.dateOfBirth;
-	athlete.gender = req.body.gender;
-	athlete.location = req.body.location;
-	athlete.association = req.body.association;
-	athlete.sports = req.body.sports;
-	athlete.team = req.body.team;
-	athlete.drinksAlcohol = req.body.drinksAlcohol;
-	athlete.married = req.body.married;
-
-	athlete.save();
-
-	res.send("Successfully created profile");
 });
 
 app.listen(port, () => {
