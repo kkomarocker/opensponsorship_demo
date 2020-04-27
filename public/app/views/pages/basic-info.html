@@ -1,22 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand">Profile Form</a>
+</nav>
 <div class="card">
 	<div class="card-body">
 		<h4 class="card-title">Basic Information</h4>
 		<form>
 			<div class="form-group">
 				<label for="first-name">First Name</label>
-				<input type="text" class="form-control" id="first-name" />
+				<input
+					type="text"
+					class="form-control"
+					id="first-name"
+					ng-model="basicInformation.info.firstName"
+				/>
 			</div>
 			<div class="form-group">
 				<label for="last-name">Last Name</label>
-				<input type="text" class="form-control" id="last-name" />
+				<input
+					type="text"
+					class="form-control"
+					id="last-name"
+					ng-model="basicInformation.info.lastName"
+				/>
 			</div>
 			<div class="form-group">
 				<label for="dob">Date of Birth</label>
-				<input type="date" class="form-control" id="dob" />
+				<input
+					type="date"
+					class="form-control"
+					id="dob"
+					ng-model="basicInformation.info.dateOfBirth"
+				/>
 			</div>
 			<div class="form-group">
 				<label for="gender">Gender</label>
-				<select id="gender" class="custom-select custom-select-lg mb-3">
+				<select
+					id="gender"
+					class="custom-select custom-select-lg mb-3"
+					ng-model="basicInformation.info.gender"
+				>
 					<option selected>Please choose</option>
 					<option>Male</option>
 					<option>Female</option>
@@ -24,9 +46,18 @@
 			</div>
 			<div class="form-group">
 				<label for="location">Location</label>
-				<input type="text" class="form-control" id="location" />
+				<input
+					type="text"
+					class="form-control"
+					id="location"
+					ng-model="basicInformation.info.location"
+				/>
 			</div>
-			<button type="button" class="btn btn-outline-primary my-2 my-sm-0">
+			<button
+				ng-click="basicInformation.saveAndNext(info);"
+				type="button"
+				class="btn btn-outline-primary my-2 my-sm-0"
+			>
 				Save and Next
 			</button>
 		</form>
