@@ -10,7 +10,8 @@
 				<textarea
 					class="form-control"
 					id="description"
-					ng-model="about.info.description"
+					ng-model="about.description"
+					ng-change="about.inputDescription(this)"
 					rows="5"
 				></textarea>
 				<small id="descriptionHelp" class="form-text text-muted"
@@ -22,7 +23,8 @@
 				<select
 					id="association"
 					class="custom-select custom-select-sm mb-3"
-					ng-model="about.info.association"
+					ng-model="about.association"
+					ng-change="about.inputAssociation(this)"
 				>
 					<option>Please choose</option>
 					<option>NBA</option>
@@ -37,7 +39,8 @@
 				<select
 					id="team"
 					class="custom-select custom-select-sm mb-3"
-					ng-model="about.info.team"
+					ng-model="about.team"
+					ng-change="about.inputTeam(this)"
 				>
 					<option>Please choose</option>
 					<option>New York Knicks</option>

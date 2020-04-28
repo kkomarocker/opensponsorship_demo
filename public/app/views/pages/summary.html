@@ -3,7 +3,7 @@
 </nav>
 
 <div>
-	<div class="card">
+	<div class="card my-1">
 		<div class="card-body">
 			<h4 class="card-title">Basic Information</h4>
 			<form>
@@ -60,13 +60,17 @@
 						disabled
 					/>
 				</div>
-				<button type="button" class="btn btn-outline-primary my-2 my-sm-0">
+				<button
+					type="button"
+					class="btn btn-outline-primary my-2 my-sm-0"
+					ng-click="summary.editBasicInfo();"
+				>
 					Edit
 				</button>
 			</form>
 		</div>
 	</div>
-	<div class="card my-2">
+	<div class="card my-1">
 		<div class="card-body">
 			<h4 class="card-title">About</h4>
 			<form>
@@ -114,7 +118,11 @@
 						<option>Brooklyn Nets</option>
 					</select>
 				</div>
-				<button type="button" class="btn btn-outline-primary my-2 my-sm-0">
+				<button
+					type="button"
+					class="btn btn-outline-primary my-2 my-sm-0"
+					ng-click="summary.editAbout();"
+				>
 					Edit
 				</button>
 			</form>

@@ -12,6 +12,15 @@ angular
 		this.description = window.localStorage.description;
 		this.selectedAssociation = window.localStorage.association;
 		this.selectedTeam = window.localStorage.team;
+    
+		this.editBasicInfo = () => {
+			window.location = "/basicInfo";
+		};
+
+		this.editAbout = () => {
+			window.location = "/about";
+		};
+  
 
 		// this.saveProfile = () => {
 		// 	this.data = $localStorage;

@@ -11,7 +11,8 @@
 					type="text"
 					class="form-control"
 					id="first-name"
-					ng-model="basicInformation.info.firstName"
+					ng-model="basicInformation.firstName"
+					ng-change="basicInformation.changeFirstName(this);"
 				/>
 			</div>
 			<div class="form-group">
@@ -20,7 +21,8 @@
 					type="text"
 					class="form-control"
 					id="last-name"
-					ng-model="basicInformation.info.lastName"
+					ng-model="basicInformation.lastName"
+					ng-change="basicInformation.changeLastName(this);"
 				/>
 			</div>
 			<div class="form-group">
@@ -29,7 +31,8 @@
 					type="date"
 					class="form-control"
 					id="dob"
-					ng-model="basicInformation.info.dateOfBirth"
+					ng-model="basicInformation.dateOfBirth"
+					ng-change="basicInformation.changeDateOfBirth(this);"
 				/>
 			</div>
 			<div class="form-group">
@@ -37,7 +40,8 @@
 				<select
 					id="gender"
 					class="custom-select custom-select-sm mb-3"
-					ng-model="basicInformation.info.gender"
+					ng-model="basicInformation.gender"
+					ng-change="basicInformation.changeGender(this)"
 				>
 					<option selected>Please choose</option>
 					<option>Male</option>
@@ -50,7 +54,8 @@
 					type="text"
 					class="form-control"
 					id="location"
-					ng-model="basicInformation.info.location"
+					ng-model="basicInformation.location"
+					ng-change="basicInformation.changeLocation(this)"
 				/>
 			</div>
 			<button
