@@ -15,14 +15,6 @@ angular
     
 		this.data = window.localStorage;
     
-		this.editBasicInfo = () => {
-			window.location = "/basicInfo";
-		};
-
-		this.editAbout = () => {
-			window.location = "/about";
-		};
-    
 		this.toProfileList = () => {
 			alert("Form Data will be removed. Continue?");
 

@@ -5,24 +5,14 @@ angular
 	.controller("profileCtrl", function($scope, $http) {
 
 		$scope.profiles = [];
-		this.sports = "";
 
 		$http.get("/api/profiles").then(res => {
 
 			res.data.forEach(profile => {
-				if (profile.sports.length === 1) {
-					this.sports = profile.sports.join("");
-				} else {
-					this.sports = profile.sports.join(", ");
-				}
-
 				profile.dateOfBirth = moment(profile.dateOfBirth).format("MM/DD/YYYY");
-
-				profile.sports = this.sports;
 			});
 
 			$scope.profiles = res.data;
-			
 			
 		}, err => console.log(err) );
 

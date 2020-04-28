@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand">Profile</a>
 </nav>
-
 <div>
 	<div class="card my-1">
 		<div class="card-body">
-			<h4 class="card-title">Basic Information</h4>
 			<form>
 				<div class="form-group">
 					<label for="first-name">First Name</label>
@@ -13,8 +11,9 @@
 						type="text"
 						class="form-control"
 						id="first-name"
-						disabled
+						ng-disabled="model.isDisabled"
 						ng-model="profile.firstName"
+						ng-change="singleProfile.updateFirstName(this);"
 					/>
 				</div>
 				<div class="form-group">
@@ -23,8 +22,9 @@
 						type="text"
 						class="form-control"
 						id="last-name"
-						disabled
+						ng-disabled="model.isDisabled"
 						ng-model="profile.lastName"
+						ng-change="singleProfile.updateLastName(this);"
 					/>
 				</div>
 				<div class="form-group">
@@ -34,7 +34,8 @@
 						class="form-control"
 						id="dob"
 						ng-model="profile.dateOfBirth"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateDateOfBirth(this);"
 					/>
 				</div>
 				<div class="form-group">
@@ -43,7 +44,8 @@
 						id="gender"
 						class="custom-select custom-select-sm mb-3"
 						ng-model="profile.gender"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateGender(this);"
 					>
 						<option>Please choose</option>
 						<option>Male</option>
@@ -57,23 +59,10 @@
 						class="form-control"
 						id="location"
 						ng-model="profile.location"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateLocation(this);"
 					/>
 				</div>
-				<button
-					type="button"
-					class="btn btn-outline-primary my-2 my-sm-0"
-					ng-click="singleProfile.editBasicInfo();"
-				>
-					Edit
-				</button>
-			</form>
-		</div>
-	</div>
-	<div class="card my-1">
-		<div class="card-body">
-			<h4 class="card-title">About</h4>
-			<form>
 				<div class="form-group">
 					<label for="description">Description</label>
 					<textarea
@@ -81,7 +70,8 @@
 						id="description"
 						ng-model="profile.description"
 						rows="5"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateDescription(this);"
 					></textarea>
 					<small id="descriptionHelp" class="form-text text-muted"
 						>Maximum 255 characters</small
@@ -93,14 +83,11 @@
 						id="association"
 						class="custom-select custom-select-sm mb-3"
 						ng-model="profile.association"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateAssociation(this);"
 					>
 						<option>Please choose</option>
 						<option>NBA</option>
-						<option>MLB</option>
-						<option>NFL</option>
-						<option>NHL</option>
-						<option>MLS</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -109,7 +96,8 @@
 						id="team"
 						class="custom-select custom-select-sm mb-3"
 						ng-model="profile.team"
-						disabled
+						ng-disabled="model.isDisabled"
+						ng-change="singleProfile.updateTeam(this);"
 					>
 						<option>Please choose</option>
 						<option>New York Knicks</option>
@@ -118,36 +106,39 @@
 						<option>Brooklyn Nets</option>
 					</select>
 				</div>
-				<button
-					type="button"
-					class="btn btn-outline-primary my-2 my-sm-0"
-					ng-click="singleProfile.editAbout();"
-				>
-					Edit
-				</button>
 			</form>
 		</div>
-	</div>
-	<div class="card my-1" style="text-align: right;">
-		<div class="card-body">
-			<span>
-				<button
-					type="button"
-					class="btn btn-danger my-2 my-sm-0"
-					ng-click="singleProfile.toProfileList();"
-				>
-					Cancel
-				</button>
-			</span>
-			<span>
-				<button
-					type="button"
-					class="btn btn-primary my-2 my-sm-0"
-					ng-click="singleProfile.saveProfile();"
-				>
-					Submit
-				</button>
-			</span>
+		<div class="card my-1" style="text-align: right;">
+			<div class="card-body">
+				<span>
+					<button
+						type="button"
+						class="btn btn-danger my-2 my-sm-0"
+						ng-click="singleProfile.cancelChanges();"
+					>
+						Cancel
+					</button>
+				</span>
+				<span>
+					<button
+						type="button"
+						class="btn btn-primary my-2 my-sm-0"
+						ng-click="singleProfile.editProfile();"
+					>
+						Edit
+					</button>
+				</span>
+				<span>
+					<button
+						ng-disabled="model.isDisabled"
+						type="button"
+						class="btn btn-primary my-2 my-sm-0"
+						ng-click="singleProfile.saveChanges();"
+					>
+						Submit
+					</button>
+				</span>
+			</div>
 		</div>
 	</div>
 </div>

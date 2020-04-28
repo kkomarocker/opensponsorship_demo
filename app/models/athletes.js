@@ -9,7 +9,6 @@ var AthletesSchema = new Schema({
 	location: { type: String, required: true },
 	description: { type: String, max: 255, required: true },
 	association: { type: String, required: true },
-	sports: { type: Array },
 	team: { type: String },
 	drinksAlcohol: { type: String },
 	married: { type: String },

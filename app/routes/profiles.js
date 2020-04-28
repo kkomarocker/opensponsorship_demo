@@ -25,6 +25,14 @@ router.post("/create", (req, res) => {
 	});
 });
 
+router.put("/update/:id", (req, res) => {
+	const { id } = req.params;
+
+	Athlete.findByIdAndUpdate(id, req.body).then(() => {
+		res.send("Profile updated");
+	}).catch(err => console.log(err));
+});
+
 
 
 module.exports = router;
