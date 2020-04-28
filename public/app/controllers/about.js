@@ -17,6 +17,7 @@ angular
 		};
 
 		this.inputAssociation = event => {
+			
 			const selectedAssociation = event.about.association.trim();
 			
 			$http.get(`/api/teams/${selectedAssociation}`).then(res => {
@@ -27,7 +28,10 @@ angular
 		};
 
 		this.inputTeam = event => {
-			console.log(event.about.team.trim());
+			if (!event.about.team) {
+				event.about.team = "";
+			}
+
 			window.localStorage.setItem("team", event.about.team.trim());
 		};
 
