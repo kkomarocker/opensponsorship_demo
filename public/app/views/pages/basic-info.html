@@ -4,7 +4,7 @@
 <div class="card">
 	<div class="card-body">
 		<h4 class="card-title">Basic Information</h4>
-		<form>
+		<form class="needs-validation" novalidate>
 			<div class="form-group">
 				<label for="first-name">First Name</label>
 				<input
@@ -13,7 +13,11 @@
 					id="first-name"
 					ng-model="basicInformation.firstName"
 					ng-change="basicInformation.changeFirstName(this);"
+					required
 				/>
+				<div class="invalid-feedback">
+					Please input first name.
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="last-name">Last Name</label>
@@ -23,7 +27,11 @@
 					id="last-name"
 					ng-model="basicInformation.lastName"
 					ng-change="basicInformation.changeLastName(this);"
+					required
 				/>
+				<div class="invalid-feedback">
+					Please input last name.
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="dob">Date of Birth</label>
@@ -33,20 +41,29 @@
 					id="dob"
 					ng-model="basicInformation.dateOfBirth"
 					ng-change="basicInformation.changeDateOfBirth(this);"
+					required
 				/>
+				<div class="invalid-feedback">
+					Please input date of birth.
+				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="gender">Gender</label>
 				<select
 					id="gender"
-					class="custom-select custom-select-sm mb-3"
+					class="custom-select custom-select-sm mb-0"
 					ng-model="basicInformation.gender"
 					ng-change="basicInformation.changeGender(this)"
+					required
 				>
-					<option selected>Please choose</option>
+					<option></option>
 					<option>Male</option>
 					<option>Female</option>
 				</select>
+				<div class="invalid-feedback">
+					Please select gender.
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="location">Location</label>
@@ -56,7 +73,11 @@
 					id="location"
 					ng-model="basicInformation.location"
 					ng-change="basicInformation.changeLocation(this)"
+					required
 				/>
+				<div class="invalid-feedback">
+					Please select location.
+				</div>
 			</div>
 			<button
 				ng-click="basicInformation.saveAndNext();"
