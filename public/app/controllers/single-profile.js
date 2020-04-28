@@ -3,5 +3,10 @@ angular
 	.module("singleProfileControllers", [])
 
 	.controller("singleProfileCtrl", function($scope, $http, $routeParams) {
-		$http.get();
+		$scope.profile = {};
+
+		$http.get("/api/profiles/" + $routeParams.id).then(res => {
+			$scope.profile = res.data;
+			$scope.profile.dateOfBirth = new Date($scope.profile.dateOfBirth);
+		});
 	}); 
