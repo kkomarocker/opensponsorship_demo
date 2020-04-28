@@ -28,6 +28,12 @@ angular
 				controllerAs: "summary",
 			})
 
+			.when("/profile/:id", {
+				templateUrl: "app/views/pages/profile.html",
+				controller: "singleProfileCtrl",
+				controllerAs: "singleProfile",
+			})
+
 			.otherwise({ redirectTo: "/" });
 
 		$locationProvider.html5Mode({

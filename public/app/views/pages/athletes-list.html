@@ -13,6 +13,7 @@
 <table class="table">
 	<thead class="thead-light">
 		<tr>
+			<th scope="col">ID</th>
 			<th scope="col">First Name</th>
 			<th scope="col">Last Name</th>
 			<th scope="col">Date Of Birth</th>
@@ -25,6 +26,11 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="profile in profiles">
+			<td>
+				<a href="/profile/{{profile._id}}">
+					{{ $index + 1 }}
+				</a>
+			</td>
 			<td>{{ profile.firstName }}</td>
 			<td>{{ profile.lastName }}</td>
 			<td>{{ profile.dateOfBirth }}</td>

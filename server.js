@@ -16,7 +16,7 @@ app.use("/api", require("./app/routes/index"));
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
 
-mongoose.connect("mongodb://localhost:27017/admin", err => {
+mongoose.connect("mongodb+srv://admin:admin1234@athletes-ryx6l.mongodb.net/test?retryWrites=true&w=majority", err => {
 	if (err) {
 		console.log(`Not connected to db: ${err}`);
 	} else {

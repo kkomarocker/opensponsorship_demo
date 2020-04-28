@@ -8,6 +8,8 @@ angular
 		this.association = window.localStorage.association;
 		this.team = window.localStorage.team;
 
+		
+
 		this.inputDescription = event => {
 			window.localStorage.setItem("description", event.about.description);
 		};

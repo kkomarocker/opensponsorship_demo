@@ -16,14 +16,21 @@ angular
 					this.sports = profile.sports.join(", ");
 				}
 
+				profile.dateOfBirth = moment(profile.dateOfBirth).format("MM/DD/YYYY");
+
 				profile.sports = this.sports;
 			});
 
 			$scope.profiles = res.data;
 			
+			
 		}, err => console.log(err) );
 
 		this.createProfile = () => {
 			window.location = "/basicInfo";
+		};
+
+		this.editProfile = () => {
+			console.log("hello");
 		};
 	});
