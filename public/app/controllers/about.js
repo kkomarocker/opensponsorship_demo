@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 angular
-	.module("aboutControllers", [])
+	.module("AboutControllers", [])
 
 	.controller("aboutCtrl", function($http, $scope) {
 

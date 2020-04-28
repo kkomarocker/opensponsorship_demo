@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 angular
-	.module("basicInfoControllers", ["ngMessages"])
+	.module("BasicInfoControllers", ["ngMessages"])
 
 	.controller("infoCtrl", function() {
 		

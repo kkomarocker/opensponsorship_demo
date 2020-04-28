@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 angular
-	.module("profileControllers", [])
+	.module("ProfileControllers", [])
 
 	.controller("profileCtrl", function($scope, $http) {
-
+		
 		$scope.profiles = [];
 
 		$http.get("/api/profiles").then(res => {
@@ -18,9 +18,5 @@ angular
 
 		this.createProfile = () => {
 			window.location = "/basicInfo";
-		};
-
-		this.editProfile = () => {
-			console.log("hello");
 		};
 	});

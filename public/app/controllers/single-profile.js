@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 angular
-	.module("singleProfileControllers", [])
+	.module("SingleProfileControllers", [])
 
 	.controller("singleProfileCtrl", function($scope, $http, $routeParams) {
 		$scope.profile = {};
@@ -17,7 +17,7 @@ angular
 			$scope.profile.association = $scope.profile.association.trim();
 			
 			association = $scope.profile.association.trim();
-			
+
 			$http.get(`/api/teams/${association}`).then(res => {
 				$scope.teams = res.data;
 			});

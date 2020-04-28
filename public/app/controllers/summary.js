@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 angular
-	.module("summaryControllers", [])
+	.module("SummaryControllers", [])
 
 	.controller("summaryCtrl", function($http) {
 
