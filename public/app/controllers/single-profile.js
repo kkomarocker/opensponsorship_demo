@@ -14,9 +14,10 @@ angular
 		$http.get("/api/profiles/" + $routeParams.id).then(res => {
 			$scope.profile = res.data;
 			$scope.profile.dateOfBirth = new Date($scope.profile.dateOfBirth);
+			$scope.profile.association = $scope.profile.association.trim();
 			
-			association = $scope.profile.association;
-
+			association = $scope.profile.association.trim();
+			
 			$http.get(`/api/teams/${association}`).then(res => {
 				$scope.teams = res.data;
 			});
@@ -52,6 +53,9 @@ angular
 
 		this.updateAssociation = event => {
 			$scope.profile.association = event.profile.association;
+
+			console.log(event.profile.association.trim());
+			console.log($scope.profile.association.trim());
 
 			$http.get(`/api/teams/${$scope.profile.association}`).then(res => {
 				$scope.teams = res.data;
