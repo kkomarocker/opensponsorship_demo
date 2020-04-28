@@ -20,9 +20,24 @@ angular
 		this.editAbout = () => {
 			window.location = "/about";
 		};
+    
+		this.toProfileList = () => {
+			alert("Form Data will be removed. Continue?");
+
+			window.localStorage.removeItem("firstName");
+			window.localStorage.removeItem("lastName");
+			window.localStorage.removeItem("dateOfBirth");
+			window.localStorage.removeItem("gender");
+			window.localStorage.removeItem("location");
+			window.localStorage.removeItem("description");
+			window.localStorage.removeItem("association");
+			window.localStorage.removeItem("team");
+
+			window.location = "/";
+		};
   
 
-		// this.saveProfile = () => {
-		// 	this.data = $localStorage;
-		// };
+		this.saveProfile = () => {
+			console.log("save profile");
+		};
 	}); 
