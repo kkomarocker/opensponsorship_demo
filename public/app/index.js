@@ -2,5 +2,5 @@
 angular
 	.module(
 		"profileApp", 
-		["appRoutes", "profileControllers", "basicInfoControllers", "aboutControllers", "summaryControllers", "singleProfileControllers"]
+		["appRoutes", "ngMessages", "profileControllers", "basicInfoControllers", "aboutControllers", "summaryControllers", "singleProfileControllers"]
 	);

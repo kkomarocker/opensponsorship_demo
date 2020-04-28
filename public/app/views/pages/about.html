@@ -1,53 +1,109 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand">Profile Form - About</a>
+	<a class="navbar-brand">Profile Form</a>
 </nav>
 <div class="card">
 	<div class="card-body">
-		<h4 class="card-title">About</h4>
-		<form>
+		<div class="title d-flex justify-content-between">
+			<span>
+				About
+			</span>
+			<span class="required-container">
+				<i class="fas fa-asterisk fa-xs required-icon"></i>&nbsp;Required
+			</span>
+		</div>
+		<form
+			class="ng-pristine ng-invalid ng-invalid-required"
+			name="aboutForm"
+			novalidate
+		>
 			<div class="form-group">
 				<label for="description">Description</label>
 				<textarea
 					class="form-control"
 					id="description"
+					name="description"
 					ng-model="about.description"
 					ng-change="about.inputDescription(this)"
 					rows="5"
+					ng-maxlength="255"
 				></textarea>
 				<small id="descriptionHelp" class="form-text text-muted"
 					>Maximum 255 characters</small
 				>
+				<div
+					class="field-message"
+					ng-messages="aboutForm.description.$error"
+					ng-if="aboutForm.description.$dirty"
+					ng-cloak
+				>
+					<div ng-message="maxlength">
+						Description must have maximum 255 characters
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
-				<label for="association">Association</label>
+				<label for="association">
+					Association
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<select
 					id="association"
-					class="custom-select custom-select-sm mb-3"
+					class="custom-select custom-select-sm mb-0"
+					name="association"
 					ng-model="about.association"
 					ng-change="about.inputAssociation(this)"
+					required
 				>
+					<option></option>
 					<option ng-repeat="association in associations">
 						{{ association.association }}
 					</option>
 				</select>
+				<div
+					class="field-message"
+					ng-messages="aboutForm.association.$error"
+					ng-if="aboutForm.association.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Association is required.
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
-				<label for="team">Teams</label>
+				<label for="team">
+					Teams
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<select
 					id="team"
-					class="custom-select custom-select-sm mb-3"
+					class="custom-select custom-select-sm mb-0"
+					name="team"
 					ng-model="about.team"
 					ng-change="about.inputTeam(this)"
+					required
 				>
+					<option></option>
 					<option ng-repeat="team in teams">
 						{{ team.team }}
 					</option>
 				</select>
+				<div
+					class="field-message"
+					ng-messages="aboutForm.team.$error"
+					ng-if="aboutForm.team.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Team is required.
+					</div>
+				</div>
 			</div>
 			<button
 				ng-click="about.saveAndNext(info);"
 				type="button"
 				class="btn btn-outline-primary my-2 my-sm-0"
+				ng-disabled="aboutForm.$invalid"
 			>
 				Save and Next
 			</button>

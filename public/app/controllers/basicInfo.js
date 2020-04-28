@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 angular
-	.module("basicInfoControllers", [])
+	.module("basicInfoControllers", ["ngMessages"])
 
 	.controller("infoCtrl", function() {
 		
@@ -35,20 +35,6 @@ angular
 		};
 
 		this.saveAndNext = () => {
-			const forms = document.getElementsByClassName("needs-validation");
-
-			Array.prototype.filter.call(forms, (form) => {
-				form.addEventListener("click", (event) => {
-					if (form.checkValidity() === false) {
-						event.preventDefault();
-						event.stopPropagation();
-					}
-
-					form.classList.add("was-validated");
-
-				}, false);
-			});
-
-			// window.location = "/about";
+			window.location = "/about";
 		};
 	}); 

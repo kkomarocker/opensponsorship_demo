@@ -17,20 +17,25 @@ angular
 		};
 
 		this.inputAssociation = event => {
+
+			if (!event.about.association) event.about.association = "";
 			
 			const selectedAssociation = event.about.association.trim();
-			
-			$http.get(`/api/teams/${selectedAssociation}`).then(res => {
-				$scope.teams = res.data;
-			});
 
-			window.localStorage.setItem("association", selectedAssociation);
+			if (selectedAssociation.length) {
+				$http.get(`/api/teams/${selectedAssociation}`).then(res => {
+					$scope.teams = res.data;
+				});
+
+				window.localStorage.setItem("association", selectedAssociation);
+			} else {
+				$scope.teams = [];
+			}
+
 		};
 
 		this.inputTeam = event => {
-			if (!event.about.team) {
-				event.about.team = "";
-			}
+			if (!event.about.team) event.about.team = "";
 
 			window.localStorage.setItem("team", event.about.team.trim());
 		};

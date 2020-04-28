@@ -1,57 +1,108 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand">Profile Form - Basic Information</a>
+	<a class="navbar-brand">Profile Form</a>
 </nav>
 <div class="card">
 	<div class="card-body">
-		<h4 class="card-title">Basic Information</h4>
-		<form class="needs-validation" novalidate>
+		<div class="card-title">
+			<div class="title d-flex justify-content-between">
+				<span>
+					Basic Information
+				</span>
+				<span class="required-container">
+					<i class="fas fa-asterisk fa-xs required-icon"></i>&nbsp;Required
+				</span>
+			</div>
+		</div>
+
+		<form
+			class="ng-pristine ng-invalid ng-invalid-required"
+			name="infoForm"
+			novalidate
+		>
 			<div class="form-group">
-				<label for="first-name">First Name</label>
+				<label for="first-name">
+					First Name
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<input
 					type="text"
+					name="firstName"
 					class="form-control"
 					id="first-name"
 					ng-model="basicInformation.firstName"
 					ng-change="basicInformation.changeFirstName(this);"
 					required
 				/>
-				<div class="invalid-feedback">
-					Please input first name.
+				<div
+					class="field-message"
+					ng-messages="infoForm.firstName.$error"
+					ng-if="infoForm.firstName.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						First name is required.
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="last-name">Last Name</label>
+				<label for="last-name">
+					Last Name
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<input
 					type="text"
 					class="form-control"
+					name="lastName"
 					id="last-name"
 					ng-model="basicInformation.lastName"
 					ng-change="basicInformation.changeLastName(this);"
 					required
 				/>
-				<div class="invalid-feedback">
-					Please input last name.
+				<div
+					class="field-message"
+					ng-messages="infoForm.lastName.$error"
+					ng-if="infoForm.lastName.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Last name is required.
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="dob">Date of Birth</label>
+				<label for="dob">
+					Date of Birth
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<input
 					type="date"
 					class="form-control"
 					id="dob"
+					name="dob"
 					ng-model="basicInformation.dateOfBirth"
 					ng-change="basicInformation.changeDateOfBirth(this);"
 					required
 				/>
-				<div class="invalid-feedback">
-					Please input date of birth.
+				<div
+					class="field-message"
+					ng-messages="infoForm.dob.$error"
+					ng-if="infoForm.dob.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Date of birth is required.
+					</div>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="gender">Gender</label>
+				<label for="gender">
+					Gender
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<select
 					id="gender"
+					name="gender"
 					class="custom-select custom-select-sm mb-0"
 					ng-model="basicInformation.gender"
 					ng-change="basicInformation.changeGender(this)"
@@ -61,25 +112,44 @@
 					<option>Male</option>
 					<option>Female</option>
 				</select>
-				<div class="invalid-feedback">
-					Please select gender.
+				<div
+					class="field-message"
+					ng-messages="infoForm.gender.$error"
+					ng-if="infoForm.gender.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Gender is required.
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="location">Location</label>
+				<label for="location">
+					Location
+					<i class="fas fa-asterisk fa-xs required-icon"></i>
+				</label>
 				<input
 					type="text"
 					class="form-control"
 					id="location"
+					name="location"
 					ng-model="basicInformation.location"
 					ng-change="basicInformation.changeLocation(this)"
 					required
 				/>
-				<div class="invalid-feedback">
-					Please select location.
+				<div
+					class="field-message"
+					ng-messages="infoForm.location.$error"
+					ng-if="infoForm.location.$dirty"
+					ng-cloak
+				>
+					<div ng-message="required">
+						Location is required.
+					</div>
 				</div>
 			</div>
 			<button
+				ng-disabled="infoForm.$invalid"
 				ng-click="basicInformation.saveAndNext();"
 				type="button"
 				class="btn btn-outline-primary my-2 my-sm-0"
