@@ -79,31 +79,46 @@
 				</div>
 				<div class="form-group">
 					<label for="association">Association</label>
+					<input
+						type="text"
+						class="form-control"
+						id="association"
+						ng-model="profile.association"
+						ng-disabled="model.isDisabled"
+						ng-show="model.isDisabled"
+					/>
 					<select
 						id="association"
 						class="custom-select custom-select-sm mb-3"
 						ng-model="profile.association"
 						ng-disabled="model.isDisabled"
+						ng-show="model.isShow"
 						ng-change="singleProfile.updateAssociation(this);"
 					>
-						<option>Please choose</option>
-						<option>NBA</option>
+						<option ng-repeat="assoc in associations">
+							{{assoc.association}}
+						</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="team">Teams</label>
+					<input
+						type="text"
+						class="form-control"
+						id="location"
+						ng-model="profile.team"
+						ng-disabled="model.isDisabled"
+						ng-show="model.isDisabled"
+					/>
 					<select
 						id="team"
 						class="custom-select custom-select-sm mb-3"
 						ng-model="profile.team"
 						ng-disabled="model.isDisabled"
+						ng-show="model.isShow"
 						ng-change="singleProfile.updateTeam(this);"
 					>
-						<option>Please choose</option>
-						<option>New York Knicks</option>
-						<option>LA Lakers</option>
-						<option>Golden State Warriors</option>
-						<option>Brooklyn Nets</option>
+						<option ng-repeat="team in teams">{{team.team}}</option>
 					</select>
 				</div>
 			</form>

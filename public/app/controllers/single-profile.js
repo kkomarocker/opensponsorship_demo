@@ -5,14 +5,27 @@ angular
 	.controller("singleProfileCtrl", function($scope, $http, $routeParams) {
 		$scope.profile = {};
 		$scope.model = {
-			isDisabled: true
+			isDisabled: true,
+			isShow: false
 		};
+
+		let association = "";
 
 		$http.get("/api/profiles/" + $routeParams.id).then(res => {
 			$scope.profile = res.data;
 			$scope.profile.dateOfBirth = new Date($scope.profile.dateOfBirth);
+			
+			association = $scope.profile.association;
+
+			$http.get(`/api/teams/${association}`).then(res => {
+				$scope.teams = res.data;
+			});
 		});
-    
+
+		$http.get("/api/association/getAssociation").then(res => {
+			$scope.associations = res.data;
+		});
+
 		this.updateFirstName = event => {
 			$scope.profile.firstName = event.profile.firstName;
 		};
@@ -47,6 +60,7 @@ angular
     
 		this.editProfile = () => {
 			$scope.model.isDisabled = false;
+			$scope.model.isShow = true;
 		};
     
 		this.cancelChanges = () => {
