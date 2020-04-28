@@ -52,6 +52,10 @@ angular
 
 		this.updateAssociation = event => {
 			$scope.profile.association = event.profile.association;
+
+			$http.get(`/api/teams/${$scope.profile.association}`).then(res => {
+				$scope.teams = res.data;
+			});
 		};
 
 		this.updateTeam = event => {
