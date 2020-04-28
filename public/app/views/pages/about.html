@@ -26,8 +26,9 @@
 					ng-model="about.association"
 					ng-change="about.inputAssociation(this)"
 				>
-					<option>Please choose</option>
-					<option>NBA</option>
+					<option ng-repeat="association in associations">
+						{{ association.association }}
+					</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -38,11 +39,9 @@
 					ng-model="about.team"
 					ng-change="about.inputTeam(this)"
 				>
-					<option>Please choose</option>
-					<option>New York Knicks</option>
-					<option>LA Lakers</option>
-					<option>Golden State Warriors</option>
-					<option>Brooklyn Nets</option>
+					<option ng-repeat="team in teams">
+						{{ team.team }}
+					</option>
 				</select>
 			</div>
 			<button
