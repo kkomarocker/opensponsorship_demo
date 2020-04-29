@@ -2,7 +2,7 @@
 angular
 	.module("BasicInfoControllers", ["ngMessages"])
 
-	.controller("infoCtrl", function() {
+	.controller("infoCtrl", function($scope, States) {
 		
 		this.firstName = window.localStorage.getItem("firstName");
 		this.lastName = window.localStorage.getItem("lastName");
@@ -15,6 +15,7 @@ angular
 		}
 
 		this.changeFirstName = event => {
+			States.setFirstName(event.basicInformation.firstName);
 			window.localStorage.setItem("firstName", event.basicInformation.firstName);
 		};
 

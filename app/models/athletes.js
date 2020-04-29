@@ -7,7 +7,7 @@ const AthletesSchema = new Schema({
 	dateOfBirth: { type: Date, default: Date.now() },
 	gender: { type: String, required: true },
 	location: { type: String, required: true },
-	description: { type: String, max: 255, required: true },
+	description: { type: String, max: 255 },
 	association: { type: String, required: true },
 	team: { type: String },
 	drinksAlcohol: { type: String },
