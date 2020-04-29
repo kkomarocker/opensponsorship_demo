@@ -16,13 +16,16 @@ app.use("/api", require("./app/routes/index"));
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
 
-mongoose.connect("mongodb+srv://admin:admin1234@athletes-ryx6l.mongodb.net/test?retryWrites=true&w=majority", err => {
-	if (err) {
-		console.log(`Not connected to db: ${err}`);
-	} else {
-		console.log("Successfully connected MongoDB");
+mongoose.connect(
+	"mongodb+srv://admin:admin1234@athletes-ryx6l.mongodb.net/test?retryWrites=true&w=majority",
+	err => {
+		if (err) {
+			console.log(`Not connected to db: ${err}`);
+		} else {
+			console.log("Successfully connected MongoDB");
+		}
 	}
-});
+);
 
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "/public/app/views/index.html"));
