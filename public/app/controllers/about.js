@@ -2,9 +2,7 @@
 angular
 	.module("AboutControllers", [])
 
-	.controller("aboutCtrl", function($http, $scope, States) {
-
-		console.log(States.getFirstName());
+	.controller("aboutCtrl", function($http, $scope) {
 
 		this.description = window.localStorage.description;
 		this.association = window.localStorage.association;

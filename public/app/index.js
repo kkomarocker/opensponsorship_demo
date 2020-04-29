@@ -11,19 +11,5 @@ angular
 			"SummaryControllers", 
 			"SingleProfileControllers"
 		]
-	)
+	);
 
-	.factory("States", function() {
-		var firstName = "test name";
-
-		console.log(firstName);
-
-		return {
-			getFirstName: function () {
-				return firstName;
-			},
-			setFirstName: function (name) {
-				firstName = name;
-			}
-		};
-	});
